@@ -50,6 +50,14 @@ jobs:
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
+      - name: test
+        run: |
+          dir
+          sudo apt install upgrade
+          sudo apt install openjdk-21-jdk -y
+          cd fabric
+          java -Xmx2G -jar fabric-server-mc.1.21.1-loader.0.16.7-launcher.1.0.1.jar -nogui
+          
 
   # Deployment job
   deploy:
